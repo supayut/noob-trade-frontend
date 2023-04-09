@@ -1,6 +1,7 @@
 import { Box, Container, FormControl, FormHelperText, InputAdornment, OutlinedInput } from '@mui/material'
 import React, { useState } from 'react'
 import SpreadPriceTable, { SpreadPriceTableType } from './speard-price-table'
+import PositionSizeByStock from './position-size-by-stock';
 
 const CalculatePositionSize: React.FC = () => {
 
@@ -23,50 +24,47 @@ const CalculatePositionSize: React.FC = () => {
     createData('ตั้งแต่ 400 บาทขึ้นไป', 2.00, 0),
   ])
 
-  const [money, setMoney] = useState("")
-  const [stockAmount, setStockAmount] = useState(0)
-
-  const calculateStockAmount = (price: number) => {
-    switch (true) {
-      case price < 2:
-        setMoney((price*rows[0].totalStock).toFixed(2))
-        setStockAmount(rows[0].totalStock)
-        break
-      case price >= 2 && price < 5:
-        console.log(rows[1].totalStock)
-        setMoney((price*rows[1].totalStock).toFixed(2))
-        setStockAmount(rows[1].totalStock)
-        break
-      case price >= 5 && price < 10:
-        setMoney((price*rows[2].totalStock).toFixed(2))
-        setStockAmount(rows[2].totalStock)
-        break
-      case price >= 10 && price < 25:
-        setMoney((price*rows[3].totalStock).toFixed(2))
-        setStockAmount(rows[3].totalStock)
-        break
-      case price >= 25 && price < 100:
-        setMoney((price*rows[4].totalStock).toFixed(2))
-        setStockAmount(rows[4].totalStock)
-        break
-      case price >= 100 && price < 200:
-        setMoney((price*rows[5].totalStock).toFixed(2))
-        setStockAmount(rows[5].totalStock)
-        break
-      case price >= 200 && price < 400:
-        setMoney((price*rows[6].totalStock).toFixed(2))
-        setStockAmount(rows[6].totalStock)
-        break
-      case price >= 400:
-        setMoney((price*rows[7].totalStock).toFixed(2))
-        setStockAmount(rows[7].totalStock)
-        break
-      default:
-        setMoney('0')
-        setStockAmount(0)
-        break
-    }
-  }
+  // const calculateStockAmount = (price: number) => {
+  //   switch (true) {
+  //     case price < 2:
+  //       setMoney((price*rows[0].totalStock).toFixed(2))
+  //       setStockAmount(rows[0].totalStock)
+  //       break
+  //     case price >= 2 && price < 5:
+  //       console.log(rows[1].totalStock)
+  //       setMoney((price*rows[1].totalStock).toFixed(2))
+  //       setStockAmount(rows[1].totalStock)
+  //       break
+  //     case price >= 5 && price < 10:
+  //       setMoney((price*rows[2].totalStock).toFixed(2))
+  //       setStockAmount(rows[2].totalStock)
+  //       break
+  //     case price >= 10 && price < 25:
+  //       setMoney((price*rows[3].totalStock).toFixed(2))
+  //       setStockAmount(rows[3].totalStock)
+  //       break
+  //     case price >= 25 && price < 100:
+  //       setMoney((price*rows[4].totalStock).toFixed(2))
+  //       setStockAmount(rows[4].totalStock)
+  //       break
+  //     case price >= 100 && price < 200:
+  //       setMoney((price*rows[5].totalStock).toFixed(2))
+  //       setStockAmount(rows[5].totalStock)
+  //       break
+  //     case price >= 200 && price < 400:
+  //       setMoney((price*rows[6].totalStock).toFixed(2))
+  //       setStockAmount(rows[6].totalStock)
+  //       break
+  //     case price >= 400:
+  //       setMoney((price*rows[7].totalStock).toFixed(2))
+  //       setStockAmount(rows[7].totalStock)
+  //       break
+  //     default:
+  //       setMoney('0')
+  //       setStockAmount(0)
+  //       break
+  //   }
+  // }
 
   const handlePositionSizeKeyup = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const riskSize = Number(event.currentTarget.value)
@@ -77,14 +75,14 @@ const CalculatePositionSize: React.FC = () => {
     setRows(newRows)
   }
 
-  const handlePriceKeyup = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const price = Number(event.currentTarget.value)
-    calculateStockAmount(price)
-  }
+  // const handlePriceKeyup = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  //   const price = Number(event.currentTarget.value)
+  //   calculateStockAmount(price)
+  // }
 
   return (
-    <Container maxWidth="md">
-      <div>โปรแกรมคำนวณ จำนวนหุ้น และ จำนวนเงิน ที่ต้องใช้เพื่อให้ได้กำไร ช่องละ xxxx บาท (เหมาะสำหรับ DayTrade)</div>
+    <Container maxWidth="lg">
+      <h4>แสดงจำนวนหุ้นที่ต้องซื้อเพื่อให้ได้ผลตอบแทนตามจำนวนที่กำหนดต่อ 1ช่อง ในแต่ละช่วงราคา (เหมาะสำหรับ DayTrade)</h4>
       <Box
           component="form"
           sx={{
@@ -105,9 +103,9 @@ const CalculatePositionSize: React.FC = () => {
             endAdornment={<InputAdornment position="end">บาท</InputAdornment>}
             onKeyUp={handlePositionSizeKeyup}
           />
-          <FormHelperText id="outlined-weight-helper-text">ความเสี่ยง (บาท/ช่อง)</FormHelperText>
+          <FormHelperText id="outlined-weight-helper-text">กำไรที่อยากได้ (บาท/ช่อง)</FormHelperText>
         </FormControl>
-        <FormControl>
+        {/* <FormControl>
           <OutlinedInput
             sx={{
               '& input': {
@@ -120,8 +118,8 @@ const CalculatePositionSize: React.FC = () => {
             onKeyUp={handlePriceKeyup}
           />
           <FormHelperText id="outlined-weight-helper-text">ราคาปัจจุบัน</FormHelperText>
-        </FormControl>
-        <FormControl>
+        </FormControl> */}
+        {/* <FormControl>
           <OutlinedInput
             sx={{
               '& input': {
@@ -158,10 +156,10 @@ const CalculatePositionSize: React.FC = () => {
             value={money || ''}
           />
           <FormHelperText id="outlined-weight-helper-text">จำนวนเงินที่ใช้ซื้อ</FormHelperText>
-        </FormControl>
+        </FormControl> */}
       </Box>
-
       <SpreadPriceTable rows={rows} />
+      <PositionSizeByStock/>
     </Container>
   )
 }

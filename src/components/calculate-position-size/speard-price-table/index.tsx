@@ -20,7 +20,7 @@ interface SpreadPriceTableProps {
 const SpreadPriceTable: React.FC<SpreadPriceTableProps> = ({ rows }) => {
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer sx={{marginBottom: '2em'}} component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -32,6 +32,7 @@ const SpreadPriceTable: React.FC<SpreadPriceTableProps> = ({ rows }) => {
         <TableBody>
           {rows.map((row) => (
             <TableRow
+              hover
               key={row.stockPrice}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
