@@ -1,7 +1,7 @@
-import { Box, Container, FormControl, FormHelperText, InputAdornment, OutlinedInput } from '@mui/material'
+import { Box, FormControl, FormHelperText, InputAdornment, OutlinedInput } from '@mui/material'
 import React, { useState } from 'react'
 import SpreadPriceTable, { SpreadPriceTableType } from './speard-price-table'
-import PositionSizeByStock from './position-size-by-stock';
+import PositionSizeByStock from './position-size-by-stock'
 
 const CalculatePositionSize: React.FC = () => {
 
@@ -81,7 +81,7 @@ const CalculatePositionSize: React.FC = () => {
   // }
 
   return (
-    <Container maxWidth="lg">
+    <>
       <h4>แสดงจำนวนหุ้นที่ต้องซื้อเพื่อให้ได้ผลตอบแทนตามจำนวนที่กำหนดต่อ 1ช่อง ในแต่ละช่วงราคา (เหมาะสำหรับ DayTrade)</h4>
       <Box
           component="form"
@@ -160,7 +160,7 @@ const CalculatePositionSize: React.FC = () => {
       </Box>
       <SpreadPriceTable rows={rows} />
       <PositionSizeByStock/>
-    </Container>
+    </>
   )
 }
 

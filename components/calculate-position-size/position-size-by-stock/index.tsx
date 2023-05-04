@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, Paper, TextField } from '@mui/material'
 import React from 'react'
 
 interface InputArray {
@@ -88,7 +88,13 @@ const PositionSizeByStock: React.FC = () => {
 
   const renderNewRow = (stock: InputArray, index: number) => {
     return (
-      <Box sx={{ backgroundColor: index%2===0 ? 'aliceblue': 'none'}}>
+      <Paper
+        elevation={3}
+        sx={{
+          marginTop: '1rem',
+        }}
+        key={`stock-${index}`}
+      >
         <TextField
           id={`stock-name-${index}`}
           label="ชื่อหุ้น"
@@ -133,7 +139,7 @@ const PositionSizeByStock: React.FC = () => {
           value={stock.cost}
         >
         </TextField>
-      </Box>
+      </Paper>
     )
   }
 
@@ -159,7 +165,6 @@ const PositionSizeByStock: React.FC = () => {
       <h4>จำนวนหุ้น และ จำนวนเงิน ที่ใช้ซื้อเพื่อให้ได้ผลตอบแทน X บาท/ช่อง รายตัว</h4>
       {
         inputArray.map((stock, index) => {
-          console.log('rendersss')
           return renderNewRow(stock, index)
         })
       }
