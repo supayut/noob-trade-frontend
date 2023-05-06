@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "init": "sh ./scripts/init.sh >| ./utils/json/log.json",
+    "dev": "npm run init && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
