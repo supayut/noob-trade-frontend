@@ -1,6 +1,6 @@
-import logData from '../utils/json/log.json'
+import logData from '../../public/json/log.json'
 
-export default function Stock() {
+export default function Page() {
   return (
     <div>
       Stock: {logData.stock.lastModified}

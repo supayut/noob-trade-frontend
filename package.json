@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "init": "sh ./scripts/init.sh >| ./utils/json/log.json",
+    "init": "sh ./scripts/init.sh >| ./public/json/log.json",
     "dev": "npm run init && next dev",
     "build": "next build",
     "start": "next start",
@@ -22,6 +22,7 @@
     "next": "13.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.62.1",
     "typescript": "5.0.4"
   }
 }
