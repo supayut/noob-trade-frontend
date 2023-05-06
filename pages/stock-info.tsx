@@ -1,5 +1,5 @@
 
-import logData from '../../utils/json/log.json'
+import logData from '../utils/json/log.json'
 export default function StockInfo() {
   return (
     <div>
