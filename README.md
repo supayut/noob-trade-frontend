@@ -9,12 +9,7 @@
 Try this [https://invest.supayut.com](https://invest.supayut.com)
 ## Getting Started
 
-init data first
-```bash
-npm run init
-```
-
-run the development server:
+First, run the development server:
 
 ```bash
 npm run dev

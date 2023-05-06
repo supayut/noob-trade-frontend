@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Init some data
-        run: ./scripts/init.sh >| .utils/json/log.json
-        shell: bash
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
