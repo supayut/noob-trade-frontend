@@ -1,3 +1,5 @@
+'use client'
+
 import logData from '../../public/json/log.json'
 
 export default function Page() {
