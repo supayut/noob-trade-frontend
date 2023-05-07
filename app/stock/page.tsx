@@ -1,6 +1,8 @@
+'use client'
 
-import logData from '../../utils/json/log.json'
-export default function StockInfo() {
+import logData from '../../public/json/log.json'
+
+export default function Page() {
   return (
     <div>
       Stock: {logData.stock.lastModified}

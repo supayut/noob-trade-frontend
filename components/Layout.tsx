@@ -1,3 +1,4 @@
+'use client';
 import Container from "@mui/material/Container"
 import ButtonAppBar from "./ButtonAppBar"
 import Box from "@mui/material/Box"
