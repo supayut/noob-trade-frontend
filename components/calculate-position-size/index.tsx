@@ -1,3 +1,4 @@
+'use client';
 import { Box, FormControl, FormHelperText, InputAdornment, OutlinedInput } from '@mui/material'
 import React, { useState } from 'react'
 import SpreadPriceTable, { SpreadPriceTableType } from './speard-price-table'
