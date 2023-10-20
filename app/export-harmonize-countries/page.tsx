@@ -100,12 +100,6 @@ export default function Page() {
     setSelectCountry(country)
     setChartData(undefined)
 
-    // const data1 = await getData(hsCode,1, new Date().getFullYear())
-    // console.log(data1[0].country_name_en === country)
-    // let temp1 = data1.find((item) => item.country_name_en === country ) as ExportHarmonizeCountriesResponse
-    // const data2 = await getData(hsCode,1, new Date().getFullYear()-1)
-    // let temp2 = data2.find((item) => item.country_name_en === country ) as ExportHarmonizeCountriesResponse
-
     // find index of country
     const CountryIndex = year1[0].findIndex((item) => item.country_name_en === country)
     const isNotInYear2 = year2[0].findIndex((item) => item.country_name_en === country) === -1
@@ -183,6 +177,7 @@ export default function Page() {
     <div>
       <TextField id="hs-code" label="hs_code" variant="outlined" size="small" onBlur={handleOnblur}/>
       <Button variant="contained" size="medium" onClick={() => handleOnClick()}>Apply</Button>
+      <p>Example: 20098920</p>
       <Box
         sx={{ width: '100%', height: 400, maxWidth: 360, bgcolor: 'background.paper' }}
       >
