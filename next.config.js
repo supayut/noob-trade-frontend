@@ -8,10 +8,12 @@ const nextConfig = {
   },
   reactStrictMode: true,
   output: 'export',
+  trailingSlash: true,
   distDir: 'build',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+
 }
 
 module.exports = nextConfig
